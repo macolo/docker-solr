@@ -1,5 +1,5 @@
 FROM ubuntu:14.04.5
-MAINTAINER Stephen Lawrence  <steve@stevesoffice.com>
+MAINTAINER Logical Arts LLC  <info@logicalarts.net>
 
 # Update the APT cache
 RUN sed -i.bak 's/main$/main universe/' /etc/apt/sources.list && \
@@ -12,10 +12,10 @@ RUN apt-get update && \
 
 RUN mkdir -p /var/log/supervisor
 
-RUN wget --progress=bar:force http://mirrored-packages.s3-website-us-west-1.amazonaws.com/packages/solr-4.2.0.tgz && \
-  tar --extract --file solr-4.2.0.tgz -C /opt && \
-  mv /opt/solr-4.2.0 /opt/solr && \
-  rm solr-4.2.0.tgz
+RUN wget --progress=bar:force https://archive.apache.org/dist/lucene/solr/4.2.0/solr-4.2.0.tgz && \
+    tar --extract --file solr-4.2.0.tgz -C /opt && \
+    mv /opt/solr-4.2.0 /opt/solr && \
+    rm solr-4.2.0.tgz
 
 # Include basic config
 # Can be override with volume -v flag

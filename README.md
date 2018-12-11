@@ -1,28 +1,32 @@
-Docker Solr
-===========
+# Docker Solr
 
 Builds a docker image for `solr-4.2.0`
 
-# Usage
+## Usage
 Open your browser to `http://localhost:8983/solr/`. You should see the Apache Solr admin page.
 
 
-# Building
+## Building
 
-# build a docker image from the Dockerfile
-docker build -t solr .
+### Build a docker image from the Dockerfile
 
-# ensure that the image exists, you should see the `solr` image in the list output
-docker images
+`docker build -t solr .`
 
-# run the container, mapping ports on the host virtual machine to the same ports inside the container
-ID=$(docker run -d -p 1111:22 -p 8983:8983 solr)
+### Ensure that the image exists, you should see the `solr` image in the list output
 
-# wait a few seconds and then check the logs on the container, you should see the output from solr starting up.
-docker logs $ID
+`docker images`
 
-# connect to the solr service running in the container via solr http interface
-curl "http://localhost:8983"
+### Run the container, mapping ports on the host virtual machine to the same ports inside the container
+
+`ID=$(docker run -d -p 1111:22 -p 8983:8983 solr)`
+
+### Wait a few seconds and then check the logs on the container, you should see the output from solr starting up.
+
+`docker logs $ID`
+
+### Connect to the solr service running in the container via solr http interface
+
+`curl "http://localhost:8983"`
 
 # Notes
 
